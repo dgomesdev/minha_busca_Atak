@@ -1,6 +1,6 @@
 # my_google_search
 
-This app allows the user to make a Google search and receive a simplified list of results, with a text and a link
+ 
 
 ![Main screen](https://github.com/dgomesdev.png)
 
