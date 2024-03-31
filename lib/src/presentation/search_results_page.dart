@@ -5,9 +5,9 @@ import 'package:my_google_search/src/utils/result_card_list.dart';
 import '../cubits/search_result_cubit.dart';
 
 class SearchResultsPage extends StatefulWidget {
-  final String queryText;
+  final String searchTitle;
 
-  const SearchResultsPage({super.key, required this.queryText});
+  const SearchResultsPage({super.key, required this.searchTitle});
 
   @override
   State<SearchResultsPage> createState() => _SearchResultsPageState();
@@ -20,7 +20,7 @@ class _SearchResultsPageState extends State<SearchResultsPage> {
   void initState() {
     super.initState();
     cubit = SearchResultCubit();
-    cubit.fetchSearchResults(widget.queryText);
+    cubit.fetchSearchResults(widget.searchTitle);
   }
 
   @override
@@ -49,7 +49,8 @@ class _SearchResultsPageState extends State<SearchResultsPage> {
               if (searchResults.isNotEmpty) {
                 return ResultCardList(searchResultList: searchResults);
               }
-              return const Center(child: CircularProgressIndicator());
+              return const Center(
+                  child: Text('No results found for tour search'));
             }));
   }
 }

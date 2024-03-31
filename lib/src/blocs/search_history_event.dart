@@ -3,15 +3,15 @@ abstract class SearchHistoryEvent {}
 class LoadHistoryEvent extends SearchHistoryEvent {}
 
 class AddSearchToHistoryEvent extends SearchHistoryEvent {
-  String search;
+  String searchTitle;
 
-  AddSearchToHistoryEvent({required this.search});
+  AddSearchToHistoryEvent({required this.searchTitle});
 }
 
 class RemoveSearchFromHistoryEvent extends SearchHistoryEvent {
-  String search;
+  int searchId;
 
-  RemoveSearchFromHistoryEvent({required this.search});
+  RemoveSearchFromHistoryEvent({required this.searchId});
 }
 
-class ClearResultsEvent extends SearchHistoryEvent {}
+class ClearSearchHistoryEvent extends SearchHistoryEvent {}

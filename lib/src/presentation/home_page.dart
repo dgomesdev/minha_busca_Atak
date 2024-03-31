@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     cubit = SearchResultCubit();
     bloc = SearchHistoryBloc();
-    bloc.inputSearch.add(LoadHistoryEvent());
+    bloc.add(LoadHistoryEvent());
   }
 
   @override
@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const SearchHistoryPage(),
+                    builder: (context) => SearchHistoryPage(bloc: bloc),
                   ),
                 );
               },
@@ -61,11 +61,12 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(height: 16),
             FilledButton(
                 onPressed: () {
-                  bloc.inputSearch.add(AddSearchToHistoryEvent(search: query));
+                  bloc.add(AddSearchToHistoryEvent(searchTitle: query));
                   cubit.fetchSearchResults(query);
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => SearchResultsPage(queryText: query),
+                      builder: (context) =>
+                          SearchResultsPage(searchTitle: query),
                     ),
                   );
                 },

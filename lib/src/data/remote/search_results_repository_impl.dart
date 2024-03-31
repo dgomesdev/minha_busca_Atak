@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:my_google_search/src/data/mocked_results_json.dart';
 import 'package:my_google_search/src/data/remote/search_results_repository.dart';
 import 'package:my_google_search/src/model/search_result.dart';
+import 'package:my_google_search/src/utils/mocked_results_json.dart';
 
 class SearchResultsRepositoryImpl implements ISearchResultsRepository {
   @override

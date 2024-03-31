@@ -1,39 +1,27 @@
-import 'dart:async';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_google_search/src/blocs/search_history_event.dart';
 import 'package:my_google_search/src/blocs/search_history_state.dart';
 import 'package:my_google_search/src/data/local/search_history_repository_impl.dart';
 
-class SearchHistoryBloc {
+class SearchHistoryBloc extends Bloc<SearchHistoryEvent, SearchHistoryState> {
   final _searchHistoryRepository = SearchHistoryRepositoryImpl();
 
-  final StreamController<SearchHistoryEvent> _inputSearchController =
-      StreamController<SearchHistoryEvent>();
-  final StreamController<SearchHistoryState> _outputSearchController =
-      StreamController<SearchHistoryState>();
+  SearchHistoryBloc() : super(SearchHistoryInitialState()) {
+    on<LoadHistoryEvent>((event, emit) async => emit(SearchHistorySuccessState(
+        searchHistory: await _searchHistoryRepository.loadHistory())));
 
-  Sink<SearchHistoryEvent> get inputSearch => _inputSearchController.sink;
-  Stream<SearchHistoryState> get outputSearch => _outputSearchController.stream;
+    on<AddSearchToHistoryEvent>((event, emit) async => emit(
+        SearchHistorySuccessState(
+            searchHistory: await _searchHistoryRepository
+                .addSearchToHistory(event.searchTitle))));
 
-  SearchHistoryBloc() {
-    _inputSearchController.stream.listen(_mapEventToState);
-  }
+    on<RemoveSearchFromHistoryEvent>((event, emit) async => emit(
+        SearchHistorySuccessState(
+            searchHistory: await _searchHistoryRepository
+                .removeSearchFromHistory(event.searchId))));
 
-  void _mapEventToState(SearchHistoryEvent event) {
-    List<String> searchHistory = [];
-
-    if (event is LoadHistoryEvent) {
-      searchHistory = _searchHistoryRepository.loadHistory();
-    } else if (event is AddSearchToHistoryEvent) {
-      searchHistory = _searchHistoryRepository.addSearchToHistory(event.search);
-    } else if (event is RemoveSearchFromHistoryEvent) {
-      searchHistory =
-          _searchHistoryRepository.removeSearchFromHistory(event.search);
-    } else if (event is ClearResultsEvent) {
-      searchHistory = _searchHistoryRepository.clearHistory();
-    }
-
-    _outputSearchController
-        .add(SearchHistorySuccessState(searchHistory: searchHistory));
+    on<ClearSearchHistoryEvent>((event, emit) async => emit(
+        SearchHistorySuccessState(
+            searchHistory: await _searchHistoryRepository.clearHistory())));
   }
 }

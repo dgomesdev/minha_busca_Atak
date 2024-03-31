@@ -1,9 +1,11 @@
+import '../../model/search_history.dart';
+
 abstract interface class ISearchHistoryRepository {
-  List<String> loadHistory();
+  Future<List<SearchHistory>> loadHistory();
 
-  List<String> addSearchToHistory(String search);
+  Future<List<SearchHistory>> addSearchToHistory(String search);
 
-  List<String> removeSearchFromHistory(String search);
+  Future<List<SearchHistory>> removeSearchFromHistory(int searchId);
 
-  List<String> clearHistory();
+  Future<List<SearchHistory>> clearHistory();
 }

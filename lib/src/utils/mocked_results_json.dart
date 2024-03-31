@@ -7,11 +7,11 @@ var mockedResultsJson = """
     },
     {
       "title": "MARINGA.COM - O portal da cidade de Maringá - Paraná",
-      "link": "www.maringa.com"
+      "link": "https://maringa.com/"
     },
     {
       "title": "Prefeitura do Município de Maringá",
-      "link": "www.maringa.pr.gov.br"
+      "link": "http://www.maringa.pr.gov.br"
     }
   ]
 }

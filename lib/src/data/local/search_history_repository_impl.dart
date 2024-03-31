@@ -1,29 +1,43 @@
+import 'package:my_google_search/src/data/local/database/db.dart';
 import 'package:my_google_search/src/data/local/search_history_repository.dart';
+import 'package:my_google_search/src/model/search_history.dart';
+import 'package:sqflite/sqflite.dart';
 
 class SearchHistoryRepositoryImpl implements ISearchHistoryRepository {
-  final List<String> _searchHistory = [];
+  late Database database;
 
-  @override
-  List<String> addSearchToHistory(String search) {
-    _searchHistory.add(search);
-    return _searchHistory;
+  SearchHistoryRepositoryImpl() {
+    _initializeDatabase();
+  }
+
+  Future<void> _initializeDatabase() async {
+    database = await DB.instance.database;
   }
 
   @override
-  List<String> clearHistory() {
-    _searchHistory.clear();
-    return _searchHistory;
+  Future<List<SearchHistory>> addSearchToHistory(String search) async {
+    var value = {'title': search} as Map<String, Object>;
+    await database.insert('searches', value);
+    return loadHistory();
   }
 
   @override
-  List<String> loadHistory() {
-    _searchHistory.addAll(['Maringá', 'Search 2', 'Search 3']);
-    return _searchHistory;
+  Future<List<SearchHistory>> clearHistory() async {
+    await database.delete('searches');
+    return loadHistory();
   }
 
   @override
-  List<String> removeSearchFromHistory(String search) {
-    _searchHistory.remove(search);
-    return _searchHistory;
+  Future<List<SearchHistory>> loadHistory() async {
+    final searchHistory = await database.rawQuery('SELECT * FROM searches');
+    return searchHistory
+        .map((search) => SearchHistory.fromJson(search as Map<String, dynamic>))
+        .toList();
+  }
+
+  @override
+  Future<List<SearchHistory>> removeSearchFromHistory(int searchId) async {
+    await database.delete('searches', where: 'id = $searchId');
+    return loadHistory();
   }
 }
