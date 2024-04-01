@@ -8,7 +8,7 @@ class SearchHistory {
     return switch (search) {
       {'id': int searchId, 'title': String searchTitle} =>
         SearchHistory(id: searchId, title: searchTitle),
-      _ => throw const FormatException('Failed to load search history')
+      _ => throw const FormatException('Falha ao carregar o histórico')
     };
   }
 }

@@ -1,4 +1,4 @@
-import 'package:my_google_search/src/model/search_history.dart';
+import '../model/search_history.dart';
 
 abstract class SearchHistoryState {
   List<SearchHistory> searchHistory;

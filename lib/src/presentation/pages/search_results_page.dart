@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_google_search/src/cubits/search_result_state.dart';
-import 'package:my_google_search/src/utils/result_card_list.dart';
 
-import '../cubits/search_result_cubit.dart';
+import '../../cubits/search_result_cubit.dart';
+import '../../cubits/search_result_state.dart';
+import '../utils/result_card_list.dart';
 
 class SearchResultsPage extends StatefulWidget {
   final String searchTitle;
@@ -38,19 +38,28 @@ class _SearchResultsPageState extends State<SearchResultsPage> {
             onPressed: () {
               Navigator.pop(context);
             },
-            tooltip: 'Return to home page',
+            tooltip: 'Voltar',
           ),
-          title: const Text('Results page'),
+          title: const Text('Resultados da busca'),
         ),
         body: StreamBuilder<SearchResultState>(
             stream: cubit.stream,
             builder: (context, snapshot) {
-              final searchResults = snapshot.data?.searchResults ?? [];
-              if (searchResults.isNotEmpty) {
-                return ResultCardList(searchResultList: searchResults);
+              if (cubit.state is SearchResultInitialState) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (cubit.state is SearchResultSuccessState) {
+                final searchResults = snapshot.data?.searchResults ?? [];
+                if (searchResults.isNotEmpty) {
+                  return ResultCardList(searchResultList: searchResults);
+                }
+                return const Center(
+                    child: Text('Sem resultados para sua busca'));
               }
               return const Center(
-                  child: Text('No results found for tour search'));
+                child: Text('Falha de conexão com a API'),
+              );
             }));
   }
 }

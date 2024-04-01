@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_google_search/src/presentation/home_page.dart';
+import 'package:minha_busca_Atak/src/presentation/pages/home_page.dart';
 
 void main() {
   runApp(const GoogleSearchApp());
@@ -12,9 +12,11 @@ class GoogleSearchApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Minha busca Atak',
       theme: ThemeData(
         colorSchemeSeed: const Color(0xff3ddc84),
+        appBarTheme: const AppBarTheme(
+            backgroundColor: Colors.black, foregroundColor: Colors.white),
         useMaterial3: true,
       ),
       home: const HomePage(),

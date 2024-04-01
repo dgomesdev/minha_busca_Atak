@@ -1,7 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_google_search/src/blocs/search_history_event.dart';
-import 'package:my_google_search/src/blocs/search_history_state.dart';
-import 'package:my_google_search/src/data/local/search_history_repository_impl.dart';
+import 'package:minha_busca_Atak/src/blocs/search_history_event.dart';
+import 'package:minha_busca_Atak/src/blocs/search_history_state.dart';
+
+import '../data/local/search_history_repository_impl.dart';
 
 class SearchHistoryBloc extends Bloc<SearchHistoryEvent, SearchHistoryState> {
   final _searchHistoryRepository = SearchHistoryRepositoryImpl();

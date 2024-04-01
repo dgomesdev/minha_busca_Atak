@@ -8,7 +8,8 @@ class SearchResult {
     return switch (json) {
       {'title': String resultTitle, 'link': String resultLink} =>
         SearchResult(title: resultTitle, link: resultLink),
-      _ => throw const FormatException('Failed to load result')
+      _ => throw const FormatException(
+          'Falha na conversão do formato do resultado da pesquisa')
     };
   }
 }

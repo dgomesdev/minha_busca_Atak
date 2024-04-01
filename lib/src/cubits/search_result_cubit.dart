@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_google_search/src/cubits/search_result_state.dart';
-import 'package:my_google_search/src/data/remote/search_results_repository_impl.dart';
+import 'package:minha_busca_Atak/src/cubits/search_result_state.dart';
 
+import '../data/remote/search_results_repository_impl.dart';
 import '../model/search_result.dart';
 
 class SearchResultCubit extends Cubit<SearchResultState> {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_google_search/src/utils/result_card.dart';
+import 'package:minha_busca_Atak/src/presentation/utils/result_card.dart';
 
-import '../model/search_result.dart';
+import '../../model/search_result.dart';
 
 class ResultCardList extends StatelessWidget {
   final List<SearchResult> searchResultList;
@@ -10,11 +10,6 @@ class ResultCardList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (searchResultList.isEmpty) {
-      return const Center(
-        child: Text('The list is empty'),
-      );
-    }
     return ListView.separated(
       padding: const EdgeInsets.all(8),
       itemCount: searchResultList.length,

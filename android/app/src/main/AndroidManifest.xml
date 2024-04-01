@@ -3,7 +3,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:label="my_google_search"
+        android:label="Minha busca Atak"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

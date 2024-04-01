@@ -1,7 +1,8 @@
-import 'package:my_google_search/src/data/local/database/db.dart';
-import 'package:my_google_search/src/data/local/search_history_repository.dart';
-import 'package:my_google_search/src/model/search_history.dart';
+import 'package:minha_busca_Atak/src/data/local/search_history_repository.dart';
 import 'package:sqflite/sqflite.dart';
+
+import '../../model/search_history.dart';
+import 'database/db.dart';
 
 class SearchHistoryRepositoryImpl implements ISearchHistoryRepository {
   late Database database;
