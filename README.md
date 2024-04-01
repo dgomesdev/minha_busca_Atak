@@ -16,7 +16,7 @@ Este aplicativo permite ao seu usuário fazer uma busca na internet e ter os res
 
 ### Como executar o aplicativo
 
-Baixar o APK diretamente [aqui](https://github.com/dgomesdev/) e instalar no celular, ou clonar o repositório/baixar e descompactar o zip com o códdigo fonte e executar usando uma IDE como o Android Studio ou VS Code ou executar o seguinte comando no terminal, estando na pasta raiz do projeto:
+Baixar o APK diretamente [aqui](https://github.com/dgomesdev/minha_busca_Atak/releases/download/v.1.0/MinhaBuscaAtak.apk) e instalar no celular, ou clonar o repositório/baixar e descompactar o zip com o códdigo fonte e executar usando uma IDE como o Android Studio ou VS Code ou executar o seguinte comando no terminal, estando na pasta raiz do projeto:
 ```
 flutter run
 ```
