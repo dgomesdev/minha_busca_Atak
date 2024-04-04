@@ -1,4 +1,4 @@
-package com.danilogomes.atak.my_google_search
+package com.danilogomes.my_google_search
 
 import io.flutter.embedding.android.FlutterActivity
 

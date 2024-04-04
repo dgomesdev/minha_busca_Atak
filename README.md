@@ -16,7 +16,7 @@ This application allows its user to search the internet and get Google results i
 
 ### How to Run the Application
 
-Download the APK directly [here](https://github.com/dgomesdev/minha_busca_Atak/releases/download/v.1.0/MinhaBuscaAtak.apk) and install it on your phone, or clone the repository/download and unzip the source code and run using an IDE like Android Studio or VS Code, or run the following command in the terminal, being in the root folder of the project:
+Download the APK directly [here](https://github.com/dgomesdev/my_Google_search/releases/download/v.1.0/MyGoogleSearch.apk) and install it on your phone, or clone the repository/download and unzip the source code and run using an IDE like Android Studio or VS Code, or run the following command in the terminal, being in the root folder of the project:
 
 ```
 flutter run
