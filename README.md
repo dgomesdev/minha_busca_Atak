@@ -1,40 +1,27 @@
-# Minha busca Atak
+# My Google Search
 
-### Descrição
+### Description
 
-Este aplicativo permite ao seu usuário fazer uma busca na internet e ter os resultados do Google de forma simplificada, com o título e link de cada resultado
+This application allows its user to search the internet and get Google results in a simplified manner, with the title and link of each result.
 
-### Stacks utilizadas
+### Stacks Used
 
 * [Flutter](https://docs.flutter.dev/)
 * [Dart](https://dart.dev/tools/dart-doc)
 * [Android Studio](https://developer.android.com/studio)
 
-### Requisitos técnicos
+### Technical Requirements
 
-* Celular com Android ou emulador do Android Studio junto ao Flutter SDK.
+* Android phone or Android emulator with Flutter SDK.
 
-### Como executar o aplicativo
+### How to Run the Application
 
-Baixar o APK diretamente [aqui](https://github.com/dgomesdev/minha_busca_Atak/releases/download/v.1.0/MinhaBuscaAtak.apk) e instalar no celular, ou clonar o repositório/baixar e descompactar o zip com o códdigo fonte e executar usando uma IDE como o Android Studio ou VS Code ou executar o seguinte comando no terminal, estando na pasta raiz do projeto:
+Download the APK directly [here](https://github.com/dgomesdev/minha_busca_Atak/releases/download/v.1.0/MinhaBuscaAtak.apk) and install it on your phone, or clone the repository/download and unzip the source code and run using an IDE like Android Studio or VS Code, or run the following command in the terminal, being in the root folder of the project:
+
 ```
 flutter run
 ```
 
-## Observação
+## Note
 
-O aplicativo realiza a busca consultando uma API que está hospedada em uma instãncia EC2 da AWS
-
-### Screenshots
-
-#### Página principal
-
-<img src="assets/pagina_principal_1.png" alt="Pagina principal com banco de busca vazio" width="250"/> <img src="assets/pagina_principal_2.png" alt="Pagina principal com campo de busca preenchido" width="250"/>
-
-#### Página de resultados
-
-<img src="assets/pagina_resultados_1.png" alt="Pagina com os resutlados da busca" width="250"/> <img src="assets/pagina_resultados_2.png" alt="Pagina com a mensagem sem resultados para sua busca" width="250"/>
-
-#### Página de histórico de buscas
-
-<img src="assets/pagina_historico_1.png" alt="Pagina com o histórico de buscas realizadas" width="250"/> <img src="assets/pagina_historico_2.png" alt="Pagina de histórico vazia com a mensagem seu histórico aparecerá aqui" width="250"/>
+The application was designed to perform the search by consulting an API hosted on an EC2 instance of AWS.

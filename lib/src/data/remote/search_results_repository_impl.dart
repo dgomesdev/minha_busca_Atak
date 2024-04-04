@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:minha_busca_Atak/src/data/remote/search_results_repository.dart';
+import 'package:my_google_search/src/data/remote/search_results_repository.dart';
 
 import '../../model/search_result.dart';
 
@@ -18,8 +18,7 @@ class SearchResultsRepositoryImpl implements ISearchResultsRepository {
       List<dynamic> results = jsonDecode(response.body);
       return parseToListResult(results);
     } else {
-      throw Exception(
-          'Falha na conversão dos dados dos resultados da pesquisa');
+      throw Exception('Error when parsing the data');
     }
   }
 

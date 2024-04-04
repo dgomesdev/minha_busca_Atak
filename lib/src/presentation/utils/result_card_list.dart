@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:minha_busca_Atak/src/presentation/utils/result_card.dart';
+import 'package:my_google_search/src/presentation/utils/result_card.dart';
 
 import '../../model/search_result.dart';
 

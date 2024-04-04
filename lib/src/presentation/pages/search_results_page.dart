@@ -38,9 +38,9 @@ class _SearchResultsPageState extends State<SearchResultsPage> {
             onPressed: () {
               Navigator.pop(context);
             },
-            tooltip: 'Voltar',
+            tooltip: 'Go back',
           ),
-          title: const Text('Resultados da busca'),
+          title: const Text('Search results'),
         ),
         body: StreamBuilder<SearchResultState>(
             stream: cubit.stream,
@@ -54,11 +54,10 @@ class _SearchResultsPageState extends State<SearchResultsPage> {
                 if (searchResults.isNotEmpty) {
                   return ResultCardList(searchResultList: searchResults);
                 }
-                return const Center(
-                    child: Text('Sem resultados para sua busca'));
+                return const Center(child: Text('No results for your search'));
               }
               return const Center(
-                child: Text('Falha de conexão com a API'),
+                child: Text('API connection error'),
               );
             }));
   }

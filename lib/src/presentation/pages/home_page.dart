@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:minha_busca_Atak/src/presentation/pages/search_history_page.dart';
-import 'package:minha_busca_Atak/src/presentation/pages/search_results_page.dart';
+import 'package:my_google_search/src/presentation/pages/search_history_page.dart';
+import 'package:my_google_search/src/presentation/pages/search_results_page.dart';
 
 import '../../blocs/search_history_bloc.dart';
 import '../../blocs/search_history_event.dart';
@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Minha busca Atak'),
+        title: const Text('My Google search'),
         actions: [
           IconButton(
               onPressed: () {
@@ -49,8 +49,6 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Image(image: AssetImage('assets/Atak-sistemas.png')),
-            const SizedBox(height: 16),
             TextField(
                 onChanged: (queryText) {
                   setState(() {
@@ -60,7 +58,7 @@ class _HomePageState extends State<HomePage> {
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.black)),
-                  hintText: 'Digite o que quer buscar',
+                  hintText: 'Type your search',
                 )),
             const SizedBox(height: 16),
             FilledButton(
@@ -84,7 +82,7 @@ class _HomePageState extends State<HomePage> {
                         Colors.black), // Change color when enabled
                 // Change opacity when disabled
               ),
-              child: const Text('Buscar'),
+              child: const Text('Search'),
             )
           ],
         ),

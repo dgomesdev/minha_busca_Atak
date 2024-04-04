@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:minha_busca_Atak/src/presentation/pages/search_results_page.dart';
+import 'package:my_google_search/src/presentation/pages/search_results_page.dart';
 
 import '../../blocs/search_history_bloc.dart';
 import '../../blocs/search_history_event.dart';
@@ -27,20 +27,20 @@ class _SearchHistoryPageState extends State<SearchHistoryPage> {
             onPressed: () {
               Navigator.pop(context);
             },
-            tooltip: 'Voltar',
+            tooltip: 'Go back',
           ),
-          title: const Text('Histórico de buscas')),
+          title: const Text('Search history')),
       body: BlocBuilder<SearchHistoryBloc, SearchHistoryState>(
           bloc: widget.bloc,
           builder: (context, state) {
             if (state is SearchHistoryInitialState) {
               return const Center(
-                  child: Text('Seu histórico de buscas aparecerá aqui'));
+                  child: Text('Your search history will show here'));
             } else if (state is SearchHistorySuccessState) {
               final searchHistory = state.searchHistory;
               if (searchHistory.isEmpty) {
                 return const Center(
-                    child: Text('Seu histórico de buscas aparecerá aqui'));
+                    child: Text('Your search history will show here'));
               }
               return Column(
                 children: [
@@ -85,14 +85,14 @@ class _SearchHistoryPageState extends State<SearchHistoryPage> {
                           backgroundColor:
                               MaterialStateProperty.all<Color>(Colors.black)),
                       child: const Text(
-                          'Limpar histórico'), // Change color when enabled
+                          'Clear history'), // Change color when enabled
                       // Change opacity when disabled
                     ),
                   ),
                 ],
               );
             }
-            return const Center(child: Text('Erro ao carregar o histórico'));
+            return const Center(child: Text('Error when loading the history'));
           }),
     );
   }
